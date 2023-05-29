@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Launch Tauri Dev",
+            "program": "npm",
+            "args": [
+                "run",
+                "tauri",
+                "dev"
+            ]
+        },
+        {
+            "type": "command",
+            "name": "Launch Tauri Build",
+            "program": "npm",
+            "args": [
+                "run",
+                "tauri",
+                "build"
+            ]
+        }
+    ]
+}
