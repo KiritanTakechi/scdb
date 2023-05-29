@@ -3,3 +3,7 @@
 pub use super::t_course::Entity as Course;
 pub use super::t_sc::Entity as SC;
 pub use super::t_student::Entity as Student;
+
+pub use super::t_course::Model as RawCourse;
+pub use super::t_sc::Model as RawSC;
+pub use super::t_student::Model as RawStudent;

@@ -2,6 +2,6 @@
 
 pub mod prelude;
 
-pub mod t_course;
-pub mod t_sc;
-pub mod t_student;
+mod t_course;
+mod t_sc;
+mod t_student;

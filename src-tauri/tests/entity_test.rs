@@ -1,3 +1,6 @@
+use std::ops::Deref;
+
+use scdb::database::prelude::{InitDB, DB_POOL};
 use sea_orm::Database;
 use sea_orm::{entity::*, error::*, query::*, DbConn, FromQueryResult};
 
@@ -21,13 +24,24 @@ fn main() {
 
 #[tokio::test]
 async fn find_test() {
-    use scdb::entity::*;
+    use scdb::entity::prelude::*;
 
-    let db = Database::connect("sqlite:/Users/kiritan/Code/scdb/db/scdb")
-        .await
-        .unwrap();
+    /* let db = Database::connect("sqlite:/Users/kiritan/Code/scdb/db/scdb")
+    .await
+    .unwrap(); */
 
-    let data: Option<t_student::Model> = t_student::Entity::find_by_id("1").one(&db).await.unwrap();
+    if let Err(e) = InitDB().await {
+        panic!("{}", e)
+    }
+
+    let db_pool_guard = DB_POOL.read().await;
+
+    let db = match db_pool_guard.deref() {
+        Some(n) => n,
+        None => panic!(),
+    };
+
+    let data: Option<RawStudent> = Student::find_by_id("1").one(db).await.unwrap();
     match data {
         Some(n) => println!("{}", n.f_name),
         _ => println!("not one!"),
