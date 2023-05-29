@@ -21,7 +21,7 @@ pub async fn init_db() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-pub async fn init_table<T>(entity: T, db: &DbConn) -> Result<(), Box<dyn Error>>
+async fn init_table<T>(entity: T, db: &DbConn) -> Result<(), Box<dyn Error>>
 where
     T: EntityTrait,
 {
@@ -33,7 +33,7 @@ where
     Ok(())
 }
 
-pub async fn ensure_file_exists(file_path: &str) -> Result<(), Box<dyn Error>> {
+async fn ensure_file_exists(file_path: &str) -> Result<(), Box<dyn Error>> {
     let path = Path::new(file_path);
     if !path.exists() {
         if let Some(dir) = path.parent() {

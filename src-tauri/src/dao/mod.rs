@@ -1,5 +1,5 @@
 pub mod prelude;
 
-pub mod student_dao;
-pub mod course_dao;
-pub mod sc_dao;
+mod student_dao;
+mod course_dao;
+mod sc_dao;

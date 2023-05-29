@@ -1,29 +1,32 @@
 <template>
     <div class="student-list">
-        <el-table height="100%" width="100%" stripe :data="tableData">
-            <el-table-column prop="sno" label="学号" />
-            <el-table-column prop="name" label="姓名" />
-            <el-table-column prop="sex" label="性别" />
-            <el-table-column prop="age" label="年龄" />
-            <el-table-column prop="dept" label="学院" />
+        <el-table height="100%" width="100%" stripe :data="studentData">
+            <el-table-column prop="f_sno" label="学号" />
+            <el-table-column prop="f_name" label="姓名" />
+            <el-table-column prop="f_sex" label="性别" />
+            <el-table-column prop="f_age" label="年龄" />
+            <el-table-column prop="f_dept" label="学院" />
         </el-table>
     </div>
 </template>
     
 <script setup lang='ts'>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { invoke } from "@tauri-apps/api/tauri";
 
-const tableData = [
-    {
-        sno: 1,
-        name: '丁真',
-        sex: '男',
-        age: 20,
-        dept: '理塘学院',
-    },
-]
+interface Student {
+    f_sno: string;
+    f_name: string;
+    f_sex: string;
+    f_age: number;
+    f_dept: string;
+}
 
+const studentData = ref<Student[]>([])
+
+onMounted(async () => {
+    studentData.value = await invoke("student_read_all");
+});
 </script>
     
 <style scoped>

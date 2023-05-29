@@ -1,3 +1,3 @@
 pub mod prelude;
 
-pub mod pool;
+mod pool;

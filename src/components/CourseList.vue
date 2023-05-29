@@ -1,6 +1,6 @@
 <template>
     <div class="course-list">
-        <el-table height="100%" width="100%" stripe :data="tableData">
+        <el-table height="100%" width="100%" stripe :data="courseData">
             <el-table-column prop="cno" label="课程号" />
             <el-table-column prop="name" label="课程名" />
             <el-table-column prop="credit" label="学分" />
@@ -10,9 +10,17 @@
 </template>
     
 <script setup lang='ts'>
-const tableData = [
+
+type Course = {
+    cno: string,
+    name: string,
+    credit: number,
+    semester: number,
+}
+
+const courseData: Course[] = [
     {
-        cno: 1,
+        cno: '1',
         name: '数据库',
         credit: 3,
         semester: 2,
