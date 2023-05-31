@@ -1,6 +1,5 @@
-
 use scdb::database::prelude::{InitDB, DB_POOL};
-use scdb::entity::prelude::{Course, Student, SC, RawStudent};
+use scdb::entity::prelude::{Course, RawStudent, Student, SC};
 use sea_orm::EntityTrait;
 
 #[warn(unused_must_use)]
@@ -19,5 +18,5 @@ async fn student_read_all() {
 
     let res = Student::find().all(db).await.unwrap();
 
-    println!("{}",res[0].f_name);
+    println!("{}", res[0].f_name);
 }

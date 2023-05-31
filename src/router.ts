@@ -11,15 +11,40 @@ import { createRouter, createWebHistory, createWebHashHistory, createMemoryHisto
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
+        name: "Index",
         component: () => import('./components/Home.vue')
     },
     {
         path: '/student-list',
+        name: "StudentList",
         component: () => import('./components/StudentList.vue')
     },
     {
         path: '/course-list',
+        name: "CourseList",
         component: () => import('./components/CourseList.vue')
+    },
+    {
+        path: '/update',
+        name: "Update",
+        component: () => import('./components/Update.vue'),
+        children: [
+            {
+                path: "",
+                name: "UpdateHome",
+                component: () => import('./components/update/UpdateHome.vue')
+            },
+            {
+                path: "student",
+                name: "UpdateStudent",
+                component: () => import('./components/update/UpdateStudent.vue')
+            },
+            {
+                path: "course",
+                name: "UpdateCourse",
+                component: () => import('./components/update/UpdateCourse.vue')
+            }
+        ]
     }
 ]
 

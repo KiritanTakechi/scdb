@@ -22,7 +22,7 @@ interface Student {
     f_dept: string;
 }
 
-const studentData = ref<Student[]>([])
+const studentData = ref<Student[]>([]);
 
 onMounted(async () => {
     studentData.value = await invoke("student_read_all");

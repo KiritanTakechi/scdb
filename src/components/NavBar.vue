@@ -1,8 +1,9 @@
 <template>
     <div class="nav-bar">
-        <router-link class="nav-bar__index" tag="div" to="/">首页</router-link>
-        <router-link class="nav-bar__index" tag="div" to="/student-list">学生列表</router-link>
-        <router-link class="nav-bar__index" tag="div" to="/course-list">课程列表</router-link>
+        <router-link class="nav-bar__index" tag="div" :to="{ name: 'Index' }">首页</router-link>
+        <router-link class="nav-bar__index" tag="div" :to="{ name: 'StudentList' }">学生列表</router-link>
+        <router-link class="nav-bar__index" tag="div" :to="{ name: 'CourseList' }">课程列表</router-link>
+        <router-link class="nav-bar__index" tag="div" :to="{ name: 'UpdateHome' }">新增数据</router-link>
     </div>
 </template>
     
@@ -20,8 +21,9 @@
 }
 
 .nav-bar__index {
-    margin-top: 10px;
     padding: 10px;
+
+    gap: 5px;
 
     text-align: center;
     text-decoration: none;

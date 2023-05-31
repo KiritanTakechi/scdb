@@ -4,7 +4,7 @@
       <NavBar></NavBar>
     </div>
     <div class="scdb-app__display">
-      <RouterView></RouterView>
+      <router-view></router-view>
     </div>
   </div>
 </template>

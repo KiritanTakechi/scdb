@@ -10,13 +10,25 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CourseList: typeof import('./src/components/CourseList.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
+    ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     Greet: typeof import('./src/components/Greet.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
+    QuerySC: typeof import('./src/components/QuerySC.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StudentList: typeof import('./src/components/StudentList.vue')['default']
+    Update: typeof import('./src/components/Update.vue')['default']
+    UpdateCourse: typeof import('./src/components/update/UpdateCourse.vue')['default']
+    UpdateHome: typeof import('./src/components/update/UpdateHome.vue')['default']
+    UpdateStudent: typeof import('./src/components/update/UpdateStudent.vue')['default']
   }
 }
