@@ -1,6 +1,6 @@
 <template>
     <div class="update-home">
-        <p class="update-home__sign">欢迎访问学生课程管理系统</p>
+        <p class="update-home__sign">新增数据页面</p>
     </div>
 </template>
     

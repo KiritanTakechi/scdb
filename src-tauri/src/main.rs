@@ -42,3 +42,5 @@ async fn course_read_all() -> Vec<RawCourse> {
 
     Course::find().all(db).await.unwrap()
 }
+
+
