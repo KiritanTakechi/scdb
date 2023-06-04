@@ -36,39 +36,57 @@
     
 <script setup lang='ts'>
 import { left } from '@popperjs/core';
-import { FormRules } from 'element-plus';
+import { invoke } from '@tauri-apps/api/tauri';
+import { FormInstance, FormRules } from 'element-plus';
 import { reactive, ref } from 'vue';
 
 interface Student {
-    f_sno: string | null;
-    f_name: string | null;
+    f_sno: string
+    f_name: string;
     f_sex: string;
-    f_age: number | null;
-    f_dept: string | null;
+    f_age: number;
+    f_dept: string;
 }
 
-const studentData = reactive<Student>({
-    f_sno: null,
-    f_name: null,
+const studentData = ref<Student>({
+    f_sno: '',
+    f_name: '',
     f_sex: '',
-    f_age: null,
-    f_dept: null
+    f_age: 18,
+    f_dept: ''
 });
 
+/* 未实现 */
 const rules = reactive<FormRules>({
-
+    f_sno: [
+        { required: true, message: '请输入学号', trigger: 'blur' },
+        { min: 1, max: 10, message: '输入1到10位学号', trigger: 'blur' },
+    ],
+    f_name: [
+        { required: true, message: '请输入姓名', trigger: 'blur' },
+    ],
+    f_sex: [
+        { required: true, message: '请选择性别', trigger: 'change' },
+    ],
+    f_age: [
+        { required: true, message: '请输入年龄', trigger: 'blur' },
+        { min: 0, max: 120, message: '请输入正确的年龄', trigger: 'blur' },
+    ],
+    f_dept: [
+        { required: true, message: '请输入学院', trigger: 'blur' },
+    ]
 });
 
-const onSubmit = () => {
-
+const onSubmit = async () => {
+    let _ = await invoke("student_insert", { student: studentData.value });
 }
 
 const clear = () => {
-    studentData.f_sno = null;
-    studentData.f_name = null;
-    studentData.f_sex = '';
-    studentData.f_age = null;
-    studentData.f_dept = null;
+    studentData.value.f_sno = '';
+    studentData.value.f_name = '';
+    studentData.value.f_sex = '';
+    studentData.value.f_age = 18;
+    studentData.value.f_dept = '';
 }
 </script>
     

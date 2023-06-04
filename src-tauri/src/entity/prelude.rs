@@ -7,3 +7,7 @@ pub use super::t_student::Entity as Student;
 pub use super::t_course::Model as RawCourse;
 pub use super::t_sc::Model as RawSC;
 pub use super::t_student::Model as RawStudent;
+
+pub use super::t_course::ActiveModel as MutCourse;
+pub use super::t_sc::ActiveModel as MutSC;
+pub use super::t_student::ActiveModel as MutStudent;

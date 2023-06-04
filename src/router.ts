@@ -43,6 +43,11 @@ const routes: Array<RouteRecordRaw> = [
                 path: "course",
                 name: "UpdateCourse",
                 component: () => import('./components/update/UpdateCourse.vue')
+            },
+            {
+                path: "sc",
+                name: "UpdateSC",
+                component: () => import('./components/update/UpdateSC.vue')
             }
         ]
     }

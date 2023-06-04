@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     Update: typeof import('./src/components/Update.vue')['default']
     UpdateCourse: typeof import('./src/components/update/UpdateCourse.vue')['default']
     UpdateHome: typeof import('./src/components/update/UpdateHome.vue')['default']
+    UpdateSC: typeof import('./src/components/update/UpdateSC.vue')['default']
     UpdateStudent: typeof import('./src/components/update/UpdateStudent.vue')['default']
   }
 }

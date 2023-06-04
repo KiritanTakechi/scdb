@@ -30,37 +30,38 @@
     
 <script setup lang='ts'>
 import { left } from '@popperjs/core';
+import { invoke } from '@tauri-apps/api/tauri';
 import { FormRules } from 'element-plus';
 import { reactive, ref } from 'vue';
 
 
 type Course = {
-    f_cno: string | null,
-    f_name: string | null,
-    f_credit: number | null,
-    f_semester: number | null,
+    f_cno: string,
+    f_name: string,
+    f_credit: number,
+    f_semester: number,
 }
 
-const courseData = reactive<Course>({
-    f_cno: null,
-    f_name: null,
-    f_credit: null,
-    f_semester: null,
+const courseData = ref<Course>({
+    f_cno: '',
+    f_name: '',
+    f_credit: 0,
+    f_semester: 0,
 });
 
 const rules = reactive<FormRules>({
 
 });
 
-const onSubmit = () => {
-
+const onSubmit = async () => {
+    let _ = await invoke("course_insert", { course: courseData.value });
 }
 
 const clear = () => {
-    courseData.f_cno = null;
-    courseData.f_name = null;
-    courseData.f_credit = null;
-    courseData.f_semester = null;
+    courseData.value.f_cno = '';
+    courseData.value.f_name = '';
+    courseData.value.f_credit = 0;
+    courseData.value.f_semester = 0;
 }
 </script>
     

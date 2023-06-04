@@ -3,6 +3,7 @@
         <div class="update__nav">
             <router-link class="update__nav__index" tag="div" :to="{ name: 'UpdateStudent' }">添加学生</router-link>
             <router-link class="update__nav__index" tag="div" :to="{ name: 'UpdateCourse' }">添加课程</router-link>
+            <router-link class="update__nav__index" tag="div" :to="{ name: 'UpdateSC' }">学生信息</router-link>
         </div>
         <div class="update__display">
             <router-view></router-view>
